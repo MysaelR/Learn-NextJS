@@ -10,27 +10,16 @@ function App() {
       // 'estudar reactJS'
   ]);
 
-  // useEffect(()=> {
-  //   const tarefasStorage = localStorage.getItem('@tarefas');
-  //   console.log('tarefas do localStorage 1: ',tarefasStorage)
-  //   if(tarefasStorage){
-  //     setTarefas(JSON.parse(tarefasStorage));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   // const tarefasStorage = localStorage.getItem("@tarefas");
-  //   // if(tarefasStorage){
-  //     localStorage.setItem('@tarefas', JSON.stringify(tarefas))
-  //     const tarefasStorage = localStorage.getItem('@tarefas');
-  //     console.log('tarefas do localStorage 2: ',tarefasStorage)
-  //   // }
-  // }, [tarefas]);
 
   useEffect(()=>{
     const tarefasStorage = localStorage.getItem('@tarefa');
     if(tarefasStorage){
       setTarefas(JSON.parse(tarefasStorage))
+    }
+
+    return() => {
+      //Aqui dentro poderia ser executado alguma coisa para quando o componente fosse 
+      //desmontado (ex: quando navegasse para outra página)
     }
 
   }, []);
